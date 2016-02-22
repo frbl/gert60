@@ -12,6 +12,9 @@ module.exports = function (grunt) {
   // Time how long tasks take. Can help when optimizing build times
   require('time-grunt')(grunt);
 
+  // Deploy to github
+  grunt.loadNpmTasks('grunt-build-control');
+
   // Automatically load required Grunt tasks
   require('jit-grunt')(grunt, {
     useminPrepare: 'grunt-usemin',
@@ -30,6 +33,21 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
+
+    buildcontrol: {
+      options: {
+            dir: 'dist',
+            commit: true,
+            push: true,
+            message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+        },
+      production: {
+            options: {
+                remote: 'git@github.com:frbl/gert60.git',
+                branch: 'gh-pages'
+            }
+        }
+    },
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
@@ -224,7 +242,7 @@ module.exports = function (grunt) {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
         ignorePath: /(\.\.\/){1,2}bower_components\//
       }
-    }, 
+    },
 
     // Compiles Sass to CSS and generates necessary files if requested
     compass: {
