@@ -12,7 +12,7 @@ angular.module('gert60App')
     $scope.nCoordinate = '';
     $scope.eCoordinate = '';
 
-    $scope.result = '';
+    $scope.result = false;
 
 
     var validNCoordinate = '53.1234';
@@ -20,11 +20,8 @@ angular.module('gert60App')
 
     $scope.checkCoordinates = function() {
       var res = $scope.nCoordinate === validNCoordinate && $scope.eCoordinate === validECoordinate;
-      if (res) {
-        res = 'Valid!';
-      } else {
-        res = 'Invalid!';
-      }
-      $scope.result = res;
+      $scope.correctResult = res;
+
+      $scope.result=true;
     };
   });
