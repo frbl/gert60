@@ -16,7 +16,7 @@ angular.module('gert60App')
 
 
     var validNCoordinate = '52 59.584';
-    var validECoordinate = '6 33.838';
+    var validECoordinate = '006 33.838';
 
     $scope.checkCoordinates = function() {
       var res = $scope.nCoordinate === validNCoordinate && $scope.eCoordinate === validECoordinate;
