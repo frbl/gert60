@@ -22,7 +22,7 @@ angular.module('gert60App')
       var validN = validNCoordinate.split(' ').join('');
       var validE = validECoordinate.split(' ').join('');
       var res = ($scope.nCoordinate === validNCoordinate || $scope.nCoordinate === validN) &&
-          ($scope.eCoordinate === validECoordinate || $scope.eCoordinate === validE);
+                ($scope.eCoordinate === validECoordinate || $scope.eCoordinate === validE);
       $scope.correctResult = res;
 
       $scope.result=true;
