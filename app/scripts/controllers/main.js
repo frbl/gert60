@@ -19,7 +19,10 @@ angular.module('gert60App')
     var validECoordinate = '006 33.838';
 
     $scope.checkCoordinates = function() {
-      var res = $scope.nCoordinate === validNCoordinate && $scope.eCoordinate === validECoordinate;
+      var validN = validNCoordinate.split(' ').join('');
+      var validE = validECoordinate.split(' ').join('');
+      var res = ($scope.nCoordinate === validNCoordinate || $scope.nCoordinate === validN) &&
+          ($scope.eCoordinate === validECoordinate || $scope.eCoordinate === validE);
       $scope.correctResult = res;
 
       $scope.result=true;
